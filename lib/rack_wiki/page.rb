@@ -48,15 +48,23 @@ module RackWiki
         build! root, path, except
         root
       end
-
+      
       def build!(level, path, except = [])
         Dir[path + '/*.mkd'].each do |p|
           next if except.include?(File.basename(p))
           page = Page.new(p)
-          level << page
+          add_or_replace level, page
           if page.has_subdir?
             build!(page, page.subdir)
           end
+        end
+      end
+      
+      def add_or_replace(level, page)
+        if oldpage = level.find{|p| p == page} # replace
+          level[level.index(oldpage)] = page
+        else # append
+          level << page
         end
       end
     end
@@ -106,7 +114,11 @@ module RackWiki
     def has_subdir?
       File.directory? subdir
     end
-
+    
+    def ==(other)
+      position == other.position
+    end
+    
     def <=>(other)
       position <=> other.position
     end
