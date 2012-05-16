@@ -1,0 +1,6 @@
+---
+:title: Section 1
+:description: Section 1
+:keywords: bootic, documentacion, ecommerce
+---
+# this is a section

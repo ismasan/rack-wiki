@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>Wiki example - <%= @page.title if @page %></title>
+  </head>
+  <body>
+    <%= @content %>
+    
+    <ul class="nested_menu">
+      <% menu.each do |page| %>
+        <%= build_menu page %>
+      <% end %>
+    </ul>
+  </body>
+</html>

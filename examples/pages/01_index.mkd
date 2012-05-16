@@ -1,0 +1,6 @@
+---
+:title: Portada
+:description: Portada documentacion Bootic
+:keywords: bootic, documentacion, ecommerce
+---
+# this is the index page
