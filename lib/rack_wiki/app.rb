@@ -41,7 +41,7 @@ module RackWiki
 
     get '/robots.txt' do
       content_type 'text/plain'
-      erb :robots, :layout => false
+      erb :robots, :layout => false, :views => settings.private_views_path
     end
 
     get '/index.json' do
