@@ -1,24 +1,40 @@
 # RackWiki
 
-TODO: Write a gem description
+Write markdown pages, including nested directories and a common .erb layout. Have Rack serve them for you on any Rack-enabled server.
+
+Extracted from the Bootic wiki at [wiki.bootic.net](http://wiki.bootic.net)
+
+NOTE: WiP, not tested.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'rack_wiki'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install rack_wiki
+    # config.ru
+    require 'rack_wiki'
+    RackWiki::App.set :root, Dir.pwd
+    run RackWiki::App
 
 ## Usage
 
-TODO: Write usage instructions here
+A site looks like this:
+
+    pages/
+      layout.erb
+      01_index.mkd
+      index/
+        01_page1.mkd
+        02_page2.mkd
+        
+RackWiki builds a nested, ordered pages menu for you. You can use it with the `menu` helper:
+
+```html
+<ul class="nested_menu">
+  <% menu.each do |page| %>
+    <%= build_menu page %>
+  <% end %>
+</ul>
+````
+
+Look in the ./examples directory for more.
 
 ## Contributing
 
