@@ -12,6 +12,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rdiscount'
   gem.add_dependency 'dragonfly', '0.8.2'
   gem.add_dependency 'multi_json'
+  gem.add_dependency 'builder'
   gem.add_development_dependency 'shotgun'
   
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }

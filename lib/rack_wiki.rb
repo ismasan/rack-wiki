@@ -3,6 +3,7 @@ require "rdiscount"
 require "dragonfly"
 require "multi_json"
 require "yaml"
+require "builder"
 
 require "rack_wiki/version"
 

@@ -10,6 +10,8 @@ module RackWiki
     set :views do
       File.join(settings.root, 'pages')
     end
+    
+    set :private_views_path, File.join(File.dirname(__FILE__), 'templates')
 
     disable :protection # allow jsonp
     
@@ -34,7 +36,7 @@ module RackWiki
     end
 
     get '/sitemap.xml' do
-      builder :sitemap
+      builder :sitemap, :views => settings.private_views_path
     end
 
     get '/robots.txt' do
